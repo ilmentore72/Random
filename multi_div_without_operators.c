@@ -12,6 +12,11 @@ float swap(float *x,float*y)
 float multi(float a, float b)
 {
   /*printf("%f\n%f\n",a,b );*/
+  if(a<0&&b<0)
+  {
+    a*=-1;
+    b*=-1;
+  }
   if(a>b)
   swap(&a,&b);
   if(b==0)
