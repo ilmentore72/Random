@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<math.h>
+#include<stdlib.h>
+/*This function to swap multiplication variables in case value a is greater than b, since we use recursion it will cause a problem*/
 float swap(float *x,float*y)
 {
     float temp;
@@ -19,9 +21,14 @@ float multi(float a, float b)
   else
   return(a+multi(a,-b));
 }
-float div(float a,float b)
+float divi(float a,float b)
 {
   float d=0,po=0,count,q=0;
+  if(b==0)
+  {
+    printf("denominator cannot be 0");
+    exit(0);
+  }/*you can edit range of this for loop to get more accurate results, now it gives result upto 5 decimals(i<5)*/
   for(int i=1;i<5;i++)
   {
 
@@ -44,5 +51,5 @@ float div(float a,float b)
 }
 int main()
 {
-printf("%f\n%f\n",div(5,2),multi(6,3));
+printf("%f\n%f\n",divi(5,0),multi(6,3));
 }
