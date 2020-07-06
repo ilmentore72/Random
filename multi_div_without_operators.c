@@ -14,8 +14,8 @@ float multi(float a, float b)
   /*printf("%f\n%f\n",a,b );*/
   if(a<0&&b<0)
   {
-    a*=-1;
-    b*=-1;
+    a=-a;
+    b=-b;
   }
   if(a>b)
   swap(&a,&b);
@@ -28,6 +28,17 @@ float multi(float a, float b)
 }
 float divi(float a,float b)
 {
+  int flag;
+  if(a<0)
+  {
+    flag++
+    a=-a;
+  }
+  if(b<0)
+  {
+    flag++;
+    b=-b;
+  }
   float d=0,po=0,count,q=0;
   if(b==0)
   {
@@ -52,6 +63,8 @@ float divi(float a,float b)
     d=pow(0.1,po);
     q=q+multi(count,d);
   }
+    if (flag==1)
+  q=-q;
     return(q);
 }
 int main()
