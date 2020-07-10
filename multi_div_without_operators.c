@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
+float divi(float,float);
 /*This function to swap multiplication variables in case value a is greater than b, since we use recursion it will cause a problem*/
 float swap(float *x,float*y)
 {
@@ -11,12 +12,14 @@ float swap(float *x,float*y)
 }
 float multi(float a, float b)
 {
-  /*printf("%f\n%f\n",a,b );*/
+  if(floor(a)<a&&floor(b)<b)
+    return(divi(a,(divi(1,b))));
   if(a<0&&b<0)
   {
     a=-a;
     b=-b;
   }
+  /*  printf("%f\n%f\n",a,b );*/
   if(a>b)
   swap(&a,&b);
   if(b==0)
@@ -31,7 +34,7 @@ float divi(float a,float b)
   int flag;
   if(a<0)
   {
-    flag++
+    flag++;
     a=-a;
   }
   if(b<0)
@@ -39,12 +42,17 @@ float divi(float a,float b)
     flag++;
     b=-b;
   }
-  float d=0,po=0,count,q=0;
+/*  printf("%f\n%f\n",a,b );*/
   if(b==0)
   {
-    printf("denominator cannot be 0");
+    printf("denominator cannot be 0..exiting");
     exit(0);
-  }/*you can edit range of this for loop to get more accurate results, now it gives result upto 5 decimals(i<5)*/
+  }
+  else if(a==0)
+  return 0;
+  else
+  {
+  float d=0,po=0,count,q=0;
   for(int i=1;i<5;i++)
   {
 
@@ -63,9 +71,10 @@ float divi(float a,float b)
     d=pow(0.1,po);
     q=q+multi(count,d);
   }
-    if (flag==1)
+  if (flag==1)
   q=-q;
     return(q);
+  }
 }
 int main()
 {
