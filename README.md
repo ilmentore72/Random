@@ -1,2 +1,3 @@
 # Random
-Random C or C++ codes
+Random C,C++ or python codes.
+Just learning stuff
